@@ -35,7 +35,7 @@ const main = async () => {
 
   let wallet = new NodeWallet(new Keypair()); //note this is not used
   const provider = new AnchorProvider(connection, wallet, {
-    commitment: "finalized",
+    commitment: "confirmed",
   });
 
   const testAccount = getOrCreateKeypair(KEYS_FOLDER, "test-account");
