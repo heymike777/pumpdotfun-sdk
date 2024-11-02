@@ -5,6 +5,7 @@ import {
   Keypair,
   PublicKey,
   Transaction,
+  VersionedTransaction,
 } from "@solana/web3.js";
 import { Program, Provider } from "@coral-xyz/anchor";
 import { GlobalAccount } from "./globalAccount";
@@ -139,6 +140,24 @@ export class PumpFunSDK {
       finality
     );
     return buyResults;
+  }
+
+  async createBuyTx(
+    buyer: Keypair,
+    mint: PublicKey,
+    buyAmountSol: bigint,
+    slippageBasisPoints: bigint = 500n,
+    commitment: Commitment = DEFAULT_COMMITMENT
+  ): Promise<Transaction> {
+    let buyTx = await this.getBuyInstructionsBySolAmount(
+      buyer.publicKey,
+      mint,
+      buyAmountSol,
+      slippageBasisPoints,
+      commitment
+    );
+
+    return buyTx;
   }
 
   async sell(
