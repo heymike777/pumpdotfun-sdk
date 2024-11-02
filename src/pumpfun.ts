@@ -142,24 +142,6 @@ export class PumpFunSDK {
     return buyResults;
   }
 
-  async createBuyTx(
-    buyer: Keypair,
-    mint: PublicKey,
-    buyAmountSol: bigint,
-    slippageBasisPoints: bigint = 500n,
-    commitment: Commitment = DEFAULT_COMMITMENT
-  ): Promise<Transaction> {
-    let buyTx = await this.getBuyInstructionsBySolAmount(
-      buyer.publicKey,
-      mint,
-      buyAmountSol,
-      slippageBasisPoints,
-      commitment
-    );
-
-    return buyTx;
-  }
-
   async sell(
     seller: Keypair,
     mint: PublicKey,
