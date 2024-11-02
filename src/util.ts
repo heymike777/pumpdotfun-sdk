@@ -13,8 +13,8 @@ import {
 } from "@solana/web3.js";
 import { PriorityFee, TransactionResult } from "./types";
 
-export const DEFAULT_COMMITMENT: Commitment = "finalized";
-export const DEFAULT_FINALITY: Finality = "finalized";
+export const DEFAULT_COMMITMENT: Commitment = "processed";
+export const DEFAULT_FINALITY: Finality = "confirmed";
 
 export const calculateWithSlippageBuy = (
   amount: bigint,
